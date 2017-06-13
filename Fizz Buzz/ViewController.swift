@@ -10,16 +10,55 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
+    @IBOutlet weak var myNumberLabel: UILabel!
+    var number = 0
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        myNumberLabel.text = "\(number)"
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        @IBAction func screenTapped(_ sender:
+            UITapGestureRecognizer) {
+            
+                print("screen tapped")
+                if number % 15 == 0
+                {
+                    print("FIZZ BUZZ")
+                    view.backgroundColor = UIColor.yellow
+                    myNumberLabel.text = ("FIZZ BUZZ")
+                    
+                }
+            else if number % 3 == 0
+                {
+                    print("FIZZ")
+                    view.backgroundColor = UIColor.blue
+                    myNumberLabel.text = ("FIZZ")
+                }
+            else if number % 5 ==0
+            {
+                print("BUZZ")
+                view.backgroundColor = UIColor.red
+                myNumberLabel.text = ("BUZZ")
+            }
+               else
+            {
+                number += 1
+                myNumberLabel.text = "\(self.number)"
+            
+             }
+    
+        
     }
-
-
+    @IBAction func longPress(_ sender: UILongPressGestureRecognizer)
+        
+    {
+        myNumberLabel.text = "\(number)"
+    }
 }
+
+
+
 
